@@ -121,8 +121,7 @@ app.delete('/articles/:id', function(request, response) {
   // 3
   //It interacting with Article.prototype.deleteRecord
   //No
-  //Delete record. 
-
+  //Delete record.
   client.query(
     `DELETE FROM articles WHERE article_id=$1;`,
     [request.params.id]
@@ -138,6 +137,10 @@ app.delete('/articles/:id', function(request, response) {
 app.delete('/articles', function(request, response) {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Identify which line(s) of code from the client-side blog app are interacting with this particular piece of `server.js`, and the name of the method. Do those lines of code interact with or invoke a different portion of the blog, and if so, where? What part of CRUD is being enacted/managed by this particular piece of code?
   // Put your response here...
+  // 3
+  //It interacting with Article.truncateTable
+  //no
+  //Delete.
   client.query(
     'DELETE FROM articles;'
   )
@@ -151,6 +154,7 @@ app.delete('/articles', function(request, response) {
 
 // COMMENT: What is this function invocation doing?
 // Put your response here...
+// it looks into the database to ckeck if there is an articles table, it will fill it with value from the JSON. if not it will create articles table and fill it with values.
 loadDB();
 
 app.listen(PORT, function() {
